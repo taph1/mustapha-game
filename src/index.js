@@ -10,15 +10,14 @@ app.use(morgan('dev'))
 
 const port = process.env.PORT || 3000
 
-app.use(express.static('public'))
+app.use(express.static(join(__dirname, '..', 'public')))
 // const router = require('./routes/index.js')
 // app.use(router)
 // sintaxi alternativa
 // app.use(require('./routes/index.js'))
 
 app.get('/', (req, res) => {
-    res.sendFile( 'index.html')
-    // res.sendFile(join(__dirname, 'public', 'index.html'))
+    res.sendFile(join(__dirname, '..', 'public', 'index.html'))
 })
 
 app.listen(port, () => console.log(`Servidor web arrancat a http://localhost:${port}`))
